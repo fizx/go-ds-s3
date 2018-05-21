@@ -8,6 +8,12 @@
   "bugs": {
     "url": "https://github.com/fizx/go-ds-s3"
   },
-  "gxVersion": "0.12.1"
+  "gxVersion": "0.12.1",
+  "gxDependencies": [
+    {
+      "hash": "QmXRKBQA4wXP7xWbFiZsR1GP4HV6wMDQ1aWFxZZ4uBcPX9",
+      "name": "go-datastore",
+      "version": "2.4.0"
+    },
+    }]
 }
-

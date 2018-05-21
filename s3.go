@@ -13,8 +13,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	awsS3 "github.com/aws/aws-sdk-go/service/s3"
-	datastore "github.com/ipfs/go-datastore"
 	query "github.com/ipfs/go-datastore/query"
+	datastore "gx/ipfs/QmXRKBQA4wXP7xWbFiZsR1GP4HV6wMDQ1aWFxZZ4uBcPX9/go-datastore"
 )
 
 // Datastore is an implementation of the IPFS Datastore interface for Amazon S3 (Simple Storage Service)
