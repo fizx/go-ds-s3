@@ -224,7 +224,7 @@ func (ds *Datastore) client() *awsS3.S3 {
 	}
 
 	ds.s3 = awsS3.New(session.New(&aws.Config{
-		Region:      aws.String(ds.Region)
+		Region: aws.String(ds.Region),
 	}))
 	return ds.s3
 }
