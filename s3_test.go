@@ -20,11 +20,11 @@ var testcases = map[string]string{
 }
 
 // set this to the name of the bucket you'd like to test with
-const bucketName = "YOUR_TEST_BUCKET_NAME"
+const bucketName = "foo-1526856745-bucket-14k4ij3mkl4kl"
 
 func newDS(t *testing.T) *Datastore {
 	return NewDatastore(bucketName, func(o *Options) {
-		o.Region = "us-east-1"
+		o.Region = "us-west-2"
 	})
 }
 
