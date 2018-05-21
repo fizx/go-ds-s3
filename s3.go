@@ -4,13 +4,11 @@ import (
 	"bytes"
 	"errors"
 	"io"
-	"os"
 	"strings"
 
 	"github.com/aws/aws-sdk-go/aws/awserr"
 
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	awsS3 "github.com/aws/aws-sdk-go/service/s3"
 	query "github.com/ipfs/go-datastore/query"
