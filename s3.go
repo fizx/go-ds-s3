@@ -92,6 +92,10 @@ func (ds *Datastore) Put(key datastore.Key, value interface{}) error {
 	return err
 }
 
+func (d *Datastore) Close() error {
+	return nil
+}
+
 // Get an object from the store
 func (ds *Datastore) Get(key datastore.Key) (value interface{}, err error) {
 	c := ds.client()
