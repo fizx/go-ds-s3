@@ -1,0 +1,13 @@
+{
+  "name": "go-ds-s3",
+  "author": "kyle",
+  "version": "0.0.1",
+  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
+  "language": "go",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/fizx/go-ds-s3"
+  },
+  "gxVersion": "0.12.1"
+}
+
