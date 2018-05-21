@@ -121,6 +121,10 @@ func (ds *Datastore) Has(key datastore.Key) (exists bool, err error) {
 	return true, nil
 }
 
+func (ds *Datastore) Commit() error {
+	return nil
+}
+
 // Delete a key from the store
 func (ds *Datastore) Delete(key datastore.Key) error {
 	c := ds.client()
@@ -212,7 +216,7 @@ func (ds *Datastore) Query(q query.Query) (query.Results, error) {
 // Batch is an additional required method of the Batching interface, currently unsupported
 // TODO - implement batching interface.
 func (ds *Datastore) Batch() (datastore.Batch, error) {
-	return nil, datastore.ErrBatchUnsupported
+	return ds, nil
 }
 
 // svc gives an aws.S3 client instance
