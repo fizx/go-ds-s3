@@ -19,13 +19,10 @@ import (
 
 // Datastore is an implementation of the IPFS Datastore interface for Amazon S3 (Simple Storage Service)
 type Datastore struct {
-	Path         string
-	Bucket       string
-	Region       string
-	accessKey    string
-	accessSecret string
-	accessToken  string
-	s3           *awsS3.S3
+	Path   string
+	Bucket string
+	Region string
+	s3     *awsS3.S3
 }
 
 // assert *Datastore satisfies datastore.Datastore interface at compile time
@@ -40,12 +37,9 @@ func NewDatastore(bucketName string, options ...func(o *Options)) *Datastore {
 	}
 
 	return &Datastore{
-		Path:         opts.Path,
-		Bucket:       bucketName,
-		Region:       opts.Region,
-		accessKey:    opts.AccessKey,
-		accessSecret: opts.AccessSecret,
-		accessToken:  opts.AccessToken,
+		Path:   opts.Path,
+		Bucket: bucketName,
+		Region: opts.Region,
 	}
 }
 
@@ -57,21 +51,12 @@ type Options struct {
 	// The AWS region this bucket is located in. Default regin since March 8, 2013 is "us-west-2"
 	// see: http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region for regions list
 	Region string
-	// a valid access key for the named bucket is required, defaults to AWS_ACCESS_KEY_ID ENV variable
-	AccessKey string
-	// a valid access key for the named bucket is required, defaults to AWS_SECRET_ACCESS_KEY ENV variable
-	AccessSecret string
-	// AccessToken is only required when using temporary credentials, defaults to AWS_SESSION_TOKEN ENV variable
-	AccessToken string
 }
 
 // DefaultOptions is the base set of options provided to New()
 func DefaultOptions() *Options {
 	return &Options{
-		Region:       "us-west-2",
-		AccessKey:    os.Getenv("AWS_ACCESS_KEY_ID"),
-		AccessSecret: os.Getenv("AWS_SECRET_ACCESS_KEY"),
-		AccessToken:  os.Getenv("AWS_SESSION_TOKEN"),
+		Region: "us-west-2",
 	}
 }
 
@@ -239,8 +224,7 @@ func (ds *Datastore) client() *awsS3.S3 {
 	}
 
 	ds.s3 = awsS3.New(session.New(&aws.Config{
-		Region:      aws.String(ds.Region),
-		Credentials: credentials.NewStaticCredentials(ds.accessKey, ds.accessSecret, ds.accessToken),
+		Region:      aws.String(ds.Region)
 	}))
 	return ds.s3
 }
